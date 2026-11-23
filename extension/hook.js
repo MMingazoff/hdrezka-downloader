@@ -15,8 +15,8 @@
       const url = urls.find((u) => /\.mp4/i.test(u));
       if (!url) continue;
       const prem = /prem/i.test(m[1]);
-      const quality = m[1].replace(/<[^>]*>/g, "").trim() + (prem ? " (Premium)" : "");
-      out.push({ quality, url: url.replace(/(\.mp4):hls:.*$/i, "$1") });
+      const quality = m[1].replace(/<[^>]*>/g, "").trim();
+      out.push({ quality, premium: prem, url: url.replace(/(\.mp4):hls:.*$/i, "$1") });
     }
     return out;
   }
