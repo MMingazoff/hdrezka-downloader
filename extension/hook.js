@@ -34,6 +34,7 @@
       const entry = { streams, t: p.get("translator_id"), s: p.get("season"), e: p.get("episode") };
       store.byKey[keyOf(entry.t, entry.s, entry.e)] = entry;
       store.latest = entry;
+      document.dispatchEvent(new CustomEvent('rzk-updated'));
     } catch (_) {}
   }
 
@@ -61,4 +62,11 @@
     }
     return p;
   };
+
+  // Мост для content script (изолированный мир): по запросу отдаёт данные страницы JSON-строкой
+  document.addEventListener("rzk-collect", () => {
+    let detail = "null";
+    try { detail = JSON.stringify(collectPage()); } catch (_) {}
+    document.dispatchEvent(new CustomEvent("rzk-data", { detail }));
+  });
 })();
