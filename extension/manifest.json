@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "HDRezka Downloader",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "Скачивание видео с rezka.fi в один клик: с названием, озвучкой, сезоном/серией и выбором качества",
   "permissions": [
     "downloads",
