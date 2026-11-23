@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "HDRezka Downloader",
+  "version": "0.1.0",
+  "description": "Ловит манифест видео и скачивает mp4 в один клик",
+  "permissions": ["webRequest", "downloads", "storage", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Скачать видео", "default_popup": "popup.html" }
+}
